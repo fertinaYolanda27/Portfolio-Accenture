@@ -1,0 +1,1027 @@
+/* ======================================== */
+/* ==   ACCENTURE-INSPIRED THEME         == */
+/* ======================================== */
+:root {
+    /* ACCENTURE PALETTE */
+    --acc-purple: #A100FF;      /* Primary Brand Color */
+    --acc-black: #000000;       /* Deep Black */
+    --acc-gray: #757575;        /* Text Gray */
+    --acc-light-gray: #f2f2f2;  /* Backgrounds */
+    --white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+    font-family: 'Lato', sans-serif; 
+    font-size: 16px; 
+    line-height: 1.6;  
+    background-color: var(--white);
+    color: #333;
+    padding-top: 70px;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--acc-black);
+    font-weight: 800;
+}
+
+h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 15px; }
+h1 span { color: var(--acc-purple); }
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+/* Garis Ungu di bawah Judul */
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 6px;
+    background: var(--acc-purple);
+    margin-top: 10px;
+}
+
+p { color: var(--acc-gray); margin-bottom: 15px; }
+
+/* Reset Margin Bawaan Browser */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Mencegah scroll ke samping */
+}
+
+/* ================================================= */
+/* ==============  NAVBAR TRANSPARAN  ============== */
+/* ================================================= */
+
+.navbar {
+    position: fixed !important; /* Paksa nempel di layar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /* Pastikan dia di layer paling depan */
+    
+    /* STATE AWAL: TRANSPARAN TOTAL */
+    background: transparent !important; 
+    box-shadow: none !important;
+    border: none !important;
+    padding: 25px 0;
+    
+    transition: all 0.4s ease;
+}
+/* 1. Mengatur Logo di Kiri & Menu di Kanan */
+.navbar .container {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%; /* Agar tidak terlalu mepet pinggir layar */
+    margin: 0 auto; /* Posisi container di tengah */
+}
+
+/* 2. Mengatur Menu Agar Ke Samping (Bukan ke Bawah) */
+.nav-links {
+    display: flex !important; /* KUNCI AGAR KE SAMPING */
+    list-style: none !important; /* MENGHILANGKAN BULLET POINT */
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+/* 3. Memberi Jarak Antar Menu */
+.nav-links li {
+    margin-left: 30px;
+    display: inline-block;
+}
+
+/* Pastikan LOGO warna PUTIH di awal agar terlihat di background hitam */
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    
+    color: #ffffff !important; /* Warna Putih */
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    
+    color: rgba(255, 255, 255, 0.9) !important; /* Warna Putih Agak Pudar */
+    transition: 0.3s;
+}
+
+/* Tombol Contact Me Awal (Outline Putih) */
+.nav-links .nav-cta {
+    border: 1px solid rgba(255,255,255,0.5);
+    color: #ffffff !important;
+    padding: 10px 25px;
+}
+
+/* ================================================= */
+/* =========  STATE KETIKA DI-SCROLL  ============== */
+/* ================================================= */
+/* Class ini ditambahkan otomatis oleh Javascript */
+
+.navbar.scrolled {
+    /* Background berubah jadi Putih saat scroll */
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+}
+
+/* Ubah teks jadi HITAM saat background putih */
+.navbar.scrolled .nav-logo {
+    color: #000000 !important;
+}
+
+.navbar.scrolled .nav-links a {
+    color: #333333 !important;
+}
+
+.navbar.scrolled .nav-links .nav-cta {
+    background: var(--acc-black);
+    color: white !important;
+    border-color: var(--acc-black);
+}
+
+/* --- CTA BUTTON (Contact Me) --- */
+.nav-links .nav-cta {
+    /* Awal: Border putih transparan biar elegan */
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.5);
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+}
+
+.nav-links .nav-cta:hover {
+    background: var(--acc-purple);
+    border-color: var(--acc-purple);
+    color: white;
+}
+
+
+/* ================================================= */
+/* ==   HERO SECTION (DEEP EXECUTIVE - REVISED)   == */
+/* ================================================= */
+
+header.hero {
+    /* Gradasi Gelap Mewah (Sesuai Pilihanmu) */
+    background: linear-gradient(135deg, #050505 40%, #1a0525 100%);
+    
+    min-height: 90vh; 
+    display: flex; 
+    align-items: center;
+    padding: 60px 0;
+    position: relative;
+    border-bottom: 5px solid var(--acc-purple); 
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    z-index: 2; 
+}
+
+/* --- KOLOM KIRI: TEKS --- */
+.hero-text-content { 
+    flex: 1; 
+    padding-right: 30px; /* Sedikit dikurangi biar teks lebih lega */
+}
+
+.hero h1 {
+    color: #ffffff;
+    /* [DIKECILKAN] Biar muat satu baris horizontal */
+    font-size: 2.8rem; 
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    white-space: nowrap; /* Memaksa teks tidak turun ke bawah */
+}
+.hero h1 span { color: var(--acc-purple); }
+
+.accenture-tag {
+    font-size: 0.85rem; 
+    font-weight: 800; 
+    letter-spacing: 3px;
+    color: var(--acc-purple); 
+    text-transform: uppercase; 
+    margin-bottom: 15px;
+}
+
+.hero .summary {
+    font-size: 1.1rem; /* Sedikit disesuaikan biar imbang */
+    color: #b0b0b0; 
+    border-left: 4px solid var(--acc-purple);
+    padding-left: 20px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* --- TOMBOL (CV & TRANSKRIP) --- */
+.hero-buttons { 
+    display: flex; 
+    gap: 15px; 
+    margin-top: 30px;
+}
+
+.btn-primary {
+    background: var(--acc-purple);
+    color: white;
+    padding: 12px 28px;
+    text-decoration: none;
+    font-weight: 700;
+    border: 2px solid var(--acc-purple);
+    border-radius: 0px; 
+    transition: all 0.3s;
+}
+.btn-primary:hover {
+    background: #7a00c2;
+    border-color: #7a00c2;
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white; 
+    padding: 12px 28px;
+    text-decoration: none;
+    font-weight: 700;
+    border: 2px solid rgba(255,255,255,0.3); 
+    border-radius: 0px;
+    transition: all 0.3s;
+}
+.btn-secondary:hover {
+    border-color: var(--acc-purple);
+    color: var(--acc-purple);
+    transform: translateY(-3px);
+}
+
+/* --- KOLOM KANAN: FOTO BULAT (UKURAN DIKECILKAN) --- */
+.hero-img-container { 
+    flex: 1; 
+    display: flex; 
+    justify-content: center; 
+    position: relative; 
+}
+
+.hero-img { 
+    /* [DIKECILKAN] Biar tajam & proporsional */
+    width: 220px; 
+    height: 220px; 
+    object-fit: cover; 
+    border-radius: 50%; 
+    z-index: 2; 
+    position: relative; 
+    
+    border: 3px solid rgba(255,255,255,0.1); 
+    box-shadow: 0 0 40px rgba(161, 0, 255, 0.2); 
+}
+
+/* Blob Ungu Samar di Belakang Foto (Ikut Dikecilkan) */
+.accenture-blob {
+    position: absolute; 
+    width: 260px; 
+    height: 260px; 
+    background: radial-gradient(circle, rgba(161,0,255,0.15) 0%, transparent 70%);
+    border-radius: 50%; 
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .hero .container { flex-direction: column-reverse; text-align: center; }
+    .hero-text-content { padding-right: 0; margin-top: 40px; }
+    .hero-buttons { justify-content: center; }
+    .hero .summary { border-left: none; border-top: 4px solid var(--acc-purple); padding-top: 20px; padding-left: 0; }
+    
+    /* Di HP, nama boleh turun kalau gak muat, atau dikecilin lagi */
+    .hero h1 { font-size: 2.2rem; white-space: normal; }
+}
+
+/* ================================================= */
+/* ==   WHY ACCENTURE (SLIM LABEL STYLE)          == */
+/* ================================================= */
+
+.why-accenture-section {
+    padding: 40px 0;
+    background: var(--white);
+}
+
+.pledge-box {
+    /* [BALIKIN WARNA]: Gradient ungu muda yang jelas (biar kelihatan kayak label) */
+    background: linear-gradient(135deg, #f3e5f5 0%, #ffffff 100%);
+    
+    /* Garis ungu kiri (Pegangan Label) */
+    border-left: 6px solid var(--acc-purple);
+    
+    /* PADDING RAMPING: 25px (Bukan 40px) biar gak 'Guedekk' */
+    padding: 25px 35px;
+    
+    /* Sudut kanan melengkung dikit biar manis kayak label/tag */
+    border-radius: 0 10px 10px 0;
+    
+    /* Bayangan biar labelnya 'ngangkat' */
+    box-shadow: 5px 5px 15px rgba(161, 0, 255, 0.08);
+    
+    margin-bottom: 20px;
+}
+
+/* Teks di dalamnya (Ukuran Normal/Nyaman) */
+.pledge-text {
+    font-size: 1.05rem; /* Tidak raksasa */
+    line-height: 1.6;
+    color: #333; /* Hitam abu biar kontras di atas ungu muda */
+    margin-bottom: 15px;
+    font-style: italic; /* Opsional: Italic biar kayak kutipan */
+}
+
+/* Judul Why Accenture */
+.pledge-box h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: var(--acc-black);
+}
+
+/* Tag di bawahnya */
+.pledge-tags span {
+    display: inline-block;
+    background: var(--acc-black);
+    color: white;
+    padding: 5px 15px; 
+    font-size: 0.75rem; 
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-right: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* --- PROJECTS --- */
+#projects { background: var(--acc-light-gray); padding: 80px 0; }
+
+.project-card {
+    background: white; display: flex; margin-bottom: 50px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #e0e0e0;
+    position: relative; overflow: hidden;
+}
+.project-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--acc-purple);
+}
+
+.project-content { flex: 1.5; padding: 40px; }
+.visual-column-container { flex: 1; background: #f9f9f9; padding: 30px; display: flex; flex-direction: column; justify-content: center; border-left: 1px solid #eee; }
+.project-img { width: 100%; height: auto; border: 1px solid #ddd; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.caption { font-size: 0.85rem; text-align: center; margin-top: 10px; font-style: italic; }
+
+.industry-badge {
+    display: inline-block; color: var(--acc-purple); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+}
+
+/* SIMBOL GREATER THAN (>) */
+.project-content ul { list-style: none; padding: 0; }
+.project-content li { position: relative; padding-left: 25px; margin-bottom: 12px; color: #444; }
+.project-content li::before {
+    content: '>'; position: absolute; left: 0; top: 0; color: var(--acc-purple); font-weight: 900; font-family: monospace; font-size: 1.2rem;
+}
+
+.tag {
+    background: white;
+    color: var(--acc-purple);
+    border: 1px solid var(--acc-purple);
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-right: 6px;
+    margin-bottom: 8px;
+    display: inline-block;
+    
+    /* [BARU] Tambahkan transisi agar perubahan warnanya mulus */
+    transition: all 0.3s ease;
+}
+
+/* [BARU] Efek saat kursor diarahkan (Hover) */
+.tag:hover {
+    background-color: var(--acc-purple); /* Latar jadi Ungu */
+    color: white;                        /* Teks jadi Putih (Jelas) */
+    transform: translateY(-3px);         /* Naik sedikit biar dinamis */
+    box-shadow: 0 4px 10px rgba(161, 0, 255, 0.3); /* Ada bayangan ungu halus */
+    cursor: default; /* Kursor tetap panah biasa (karena bukan tombol klik) */
+}
+
+/* --- SKILLS --- */
+#skills { background: #111; color: white; padding: 80px 0; }
+#skills h2 { color: white; }
+#skills p { color: #aaa; }
+.skills-grid-visual { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+.skill-box { background: #222; padding: 30px; border-top: 3px solid var(--acc-purple); }
+.skill-box i { font-size: 2rem; color: var(--acc-purple); margin-bottom: 15px; }
+.skill-box h4 { color: white; font-size: 1.2rem; margin-bottom: 15px; }
+.skill-box ul { list-style: none; padding: 0; }
+.skill-box li { border-bottom: 1px solid #333; padding: 10px 0; color: #ccc; }
+
+/* ================================================= */
+/* ==   FOOTER (CONTACT & ACTION)                 == */
+/* ================================================= */
+
+footer {
+    background: #000000; /* Hitam Pekat */
+    color: white;
+    padding: 80px 0 40px 0;
+    text-align: center;
+    border-top: 5px solid var(--acc-purple); /* Batas atas ungu */
+}
+
+footer h2 {
+    color: #ffffff !important;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+/* Garis bawah judul di footer ditengahin */
+footer h2::after {
+    margin: 15px auto; 
+    background-color: var(--acc-purple) !important;
+}
+
+footer p {
+    color: #b0b0b0;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    font-size: 1.1rem;
+}
+
+/* --- 1. LINK FILE (CV & TRANSKRIP) --- */
+.footer-files {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.file-link {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: 0.3s;
+    
+    /* [TAMBAHAN BARU] Biar Ikon & Teks sejajar vertikal */
+    display: inline-flex; 
+    align-items: center;  
+    gap: 8px; /* Jarak antara ikon dan teks */
+}
+
+/* Biar ikonnya gak kegedean */
+.file-link i {
+    font-size: 1rem;
+    position: relative;
+    top: -1px; /* Koreksi mikro biar pas di tengah mata */
+}
+
+.file-link.main-file {
+    color: #ffffff;
+    font-weight: 700;
+    /* Kita ganti underline bawaan dengan border-bottom biar ikon gak kena garis */
+    text-decoration: none; 
+    border-bottom: 2px solid var(--acc-purple);
+    padding-bottom: 2px;
+}
+
+.file-link.main-file:hover {
+    color: var(--acc-purple);
+    border-bottom-color: transparent; /* Efek hover clean */
+}
+
+.divider { color: #444; }
+
+/* --- 2. CONTACT PILLS (TOMBOL KONTAK) --- */
+.footer-contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Biar rapi di HP */
+}
+
+.contact-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    /* Tampilan Normal: Transparan dengan Border Tipis */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 25px;
+    border-radius: 50px; /* Bentuk Kapsul */
+    
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animasi membal */
+}
+
+.contact-pill i {
+    font-size: 1.2rem;
+    color: #ccc;
+    transition: 0.3s;
+}
+
+/* --- EFEK HOVER (SAAT DISENTUH) --- */
+.contact-pill:hover {
+    background: var(--acc-purple); /* Jadi Ungu */
+    border-color: var(--acc-purple);
+    transform: translateY(-5px); /* Naik ke atas */
+    box-shadow: 0 10px 20px rgba(161, 0, 255, 0.4); /* Glow Neon Ungu */
+}
+
+.contact-pill:hover i {
+    color: #fff; /* Ikon jadi putih terang */
+}
+
+/* Responsif di HP */
+@media (max-width: 600px) {
+    .footer-contact-grid {
+        flex-direction: column; /* Tombol jadi susun ke bawah di HP */
+        align-items: center;
+        gap: 15px;
+    }
+    .contact-pill {
+        width: 100%; /* Tombol lebar penuh di HP biar gampang dipencet */
+        justify-content: center;
+        max-width: 300px;
+    }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* Perlu hamburger menu di JS, hidden dulu */
+    .hero { flex-direction: column; text-align: center; padding-top: 100px; }
+    .hero .container { flex-direction: column-reverse; }
+    .hero-text-content { padding-right: 0; }
+    .hero-buttons { justify-content: center; }
+    .project-card { flex-direction: column; }
+    .visual-column-container { order: -1; border-left: none; border-bottom: 1px solid #eee; }
+    .skills-grid-visual { grid-template-columns: 1fr; }
+    .pledge-box { padding: 20px; }
+    .accenture-blob { right: 50%; transform: translateX(50%); }
+}
+
+/* ================================================= */
+/* ==   DATA VISIBILITY FIX (ANTI-CROP)           == */
+/* ================================================= */
+
+/* Pastikan semua gambar bukti menyesuaikan tinggi otomatis */
+/* Jangan dipaksa height fix, nanti gepeng atau kepotong */
+.proof-image {
+    width: 100%;
+    height: auto !important; /* Biarkan tinggi menyesuaikan gambar asli */
+    object-fit: contain !important; /* Pastikan GAMBAR UTUH, jangan di-crop */
+    background-color: #f9f9f9; /* Kalau ada sisa ruang, kasih warna abu tipis biar rapi */
+    border: 1px solid #e0e0e0;
+}
+
+/* Khusus Container Gambar Ganda (kalau masih ada yg pake) */
+.multi-img-row {
+    align-items: flex-start; /* Biar sejajar atas */
+}
+
+/* ======================================== */
+/* ==   EVIDENCE SECTION STYLING         == */
+/* ======================================== */
+
+.evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Responsif 2 Kolom */
+    gap: 30px;
+}
+
+.evidence-card {
+    background: white;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-top: 4px solid var(--acc-purple); /* Aksen Ungu di Atas */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.evidence-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.evidence-item {
+    margin-bottom: 30px;
+}
+
+.evidence-item h4 {
+    font-size: 1rem;
+    color: var(--acc-purple); /* Judul item warna ungu */
+    margin-bottom: 5px;
+}
+
+.evidence-item p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Styling Gambar Bukti */
+.proof-image {
+    width: 100%;
+    height: auto;
+    max-height: 250px; /* Batasi tinggi biar gak kegedean */
+    object-fit: cover; /* Atau 'contain' kalau mau gambar utuh */
+    object-position: top;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.proof-image:hover {
+    transform: scale(1.02); /* Zoom sedikit pas di-hover */
+    border-color: var(--acc-purple);
+}
+
+/* Baris untuk gambar ganda (misal Odoo ada 2 gambar) */
+.multi-img-row {
+    display: flex;
+    gap: 10px;
+}
+.multi-img-row img {
+    width: 48%; /* Bagi dua */
+}
+
+/* Mobile Responsive untuk Evidence */
+@media (max-width: 768px) {
+    .evidence-grid {
+        grid-template-columns: 1fr; /* Jadi 1 kolom di HP */
+    }
+    .multi-img-row {
+        flex-direction: column;
+    }
+    .multi-img-row img {
+        width: 100%;
+    }
+}
+
+/* ================================================= */
+/* ==   FIX SPACING: SKILLS TO EVIDENCE           == */
+/* ================================================= */
+
+/* 1. Menambah bantalan bawah di Section Hitam (Skills) */
+#skills {
+    padding-bottom: 120px !important; /* Dibuat lega banget */
+}
+
+/* 2. Menambah bantalan atas di Section Putih (Evidence) */
+#evidence {
+    padding-top: 100px !important; 
+}
+
+/* Opsional: Membuat garis ungu judul Evidence sedikit lebih jauh dari teks */
+#evidence h2 {
+    margin-bottom: 60px; /* Memberi jarak lebih antara Judul dan Grid Gambar */
+}
+
+/* ======================================== */
+/* ==   LIGHTBOX (IMAGE PREVIEW) STYLES  == */
+/* ======================================== */
+
+/* 1. Indikator bahwa gambar bisa diklik */
+.proof-image, .project-img {
+    cursor: zoom-in; /* Kursor berubah jadi kaca pembesar */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Efek saat mouse diarahkan ke gambar kecil */
+.proof-image:hover, .project-img:hover {
+    transform: scale(1.02); /* Zoom dikit */
+    filter: brightness(0.9); /* Gelap dikit biar kerasa interaktif */
+    box-shadow: 0 5px 15px rgba(161, 0, 255, 0.2); /* Glow ungu tipis */
+}
+
+/* 2. Wadah Lightbox (Tersembunyi by default) */
+#image-viewer {
+    display: none; /* Awalnya ngumpet */
+    position: fixed;
+    z-index: 9999; /* Paling atas, nutupin navbar */
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.92); /* Latar hitam pekat (Premium) */
+    backdrop-filter: blur(5px); /* Efek blur di background (Modern) */
+}
+
+/* 3. Gambar di dalam Lightbox */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1000px; /* Batas maksimal biar gak pecah */
+    max-height: 85vh; /* Biar gak kepotong tingginya */
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    
+    /* Animasi Zoom In saat muncul */
+    animation-name: zoom;
+    animation-duration: 0.4s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0.8); opacity: 0} 
+    to {transform:scale(1); opacity: 1}
+}
+
+/* 4. Tombol Close (X) */
+.close-viewer {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-viewer:hover,
+.close-viewer:focus {
+    color: var(--acc-purple); /* Berubah ungu pas di-hover */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsif di HP */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 95%;
+    }
+}
+
+/* ================================================= */
+/* ==   LEADERSHIP (DARK MODE ACCENTURE STYLE)    == */
+/* ================================================= */
+
+/* 1. Background Section Hitam Pekat */
+#experience {
+    background-color: #111111;
+    padding: 100px 0;
+    color: #ffffff;
+    position: relative;
+}
+
+/* Judul Putih dengan Garis Ungu */
+#experience h2 {
+    color: #ffffff !important;
+    margin-bottom: 50px;
+}
+#experience h2::after {
+    background-color: var(--acc-purple) !important;
+}
+
+/* 2. Grid Layout (2 Kolom) */
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* 3. Card Styling (Kotak Abu Gelap Mewah) */
+.experience-card {
+    background: #1a1a1a;
+    padding: 35px;
+    border-radius: 0px; /* Sudut Tajam */
+    border: 1px solid #333;
+    border-top: 4px solid var(--acc-purple); /* Aksen Ungu di Atas */
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+/* Efek Hover (Glow Ungu) */
+.experience-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--acc-purple);
+    box-shadow: 0 10px 30px rgba(161, 0, 255, 0.15);
+    background: #222;
+}
+
+/* 4. Header dalam Card */
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+}
+
+.experience-card h4 {
+    color: #ffffff !important;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.experience-role {
+    color: var(--acc-purple);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Styling Logo Agar Rapi di Background Gelap */
+.experience-logo {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #ffffff; /* Latar putih biar logo jelas */
+    padding: 3px;
+    border: 2px solid var(--acc-purple);
+    flex-shrink: 0;
+}
+
+/* 5. Teks & List */
+.experience-card p {
+    color: #b0b0b0; /* Abu terang */
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.experience-card li {
+    color: #cccccc;
+    margin-bottom: 10px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ================================================= */
+/* ==   EDUCATION LAYOUT FIX (SIDE-BY-SIDE)       == */
+/* ================================================= */
+
+#education {
+    background-color: #ffffff;
+    padding: 100px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* CONTAINER UTAMA: MEMAKSA KANAN-KIRI */
+.education-grid {
+    display: flex;            /* Pakai Flexbox (Lebih stabil untuk layout samping) */
+    flex-direction: row;      /* Pastikan arahnya BARIS (Kiri ke Kanan) */
+    align-items: flex-start;  /* Rata atas (bisa ganti 'center' kalau mau tengah) */
+    justify-content: space-between;
+    gap: 50px;                /* Jarak antar kolom */
+    width: 100%;
+}
+
+/* KOLOM KIRI (TEKS) */
+.education-text {
+    flex: 1;              /* Mengambil sisa ruang yang ada (sekitar 60%) */
+    min-width: 300px;     /* Jaga-jaga biar gak kepenet */
+}
+
+/* KOLOM KANAN (GAMBAR & LOGO) */
+.education-image {
+    flex: 0 0 400px;      /* MATIKAN flex-grow, SET lebar tetap 400px */
+    width: 400px;         /* Lebar fix agar tidak turun ke bawah */
+    max-width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;   /* Penting */
+}
+
+/* --- Styling Detail Teks --- */
+.education-text h3 {
+    font-size: 1.8rem;
+    color: var(--acc-black);
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.degree {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Kotak GPA & Beasiswa */
+.gpa-box {
+    background: #f9f9f9;
+    padding: 20px;
+    border-left: 5px solid var(--acc-purple);
+    margin-bottom: 30px;
+    width: 100%; /* Pastikan lebar penuh di dalam kolom teks */
+}
+
+.gpa-label { font-weight: 600; color: #777; text-transform: uppercase; font-size: 0.85rem; }
+.gpa-score { font-size: 1.5rem; font-weight: 800; color: var(--acc-black); margin-left: 10px; }
+
+/* Link Beasiswa */
+.scholarship-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--acc-purple);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+/* Context Box */
+.education-context {
+    font-size: 0.95rem;
+    color: #666;
+    background-color: #fff;
+    border: 1px dashed #ccc;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* --- Styling Bagian Gambar --- */
+
+/* Header Logo di Atas Foto */
+.logo-header {
+    display: flex;
+    align-items: flex-end;;
+    gap: 15px;
+    margin-bottom: 12px;
+    background: #ffffff;
+    width: 100%;
+}
+
+.header-icon {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.header-divider {
+    width: 2px;
+    height: 30px;
+    background-color: #e0e0e0;
+}
+
+/* Foto Gedung */
+.main-campus-img {
+    width: 100%;
+    height: auto;
+    border-radius: 0px;
+    box-shadow: 10px 10px 0px #f2f2f2;
+    border: 1px solid #ddd;
+}
+
+/* Link Maps */
+.location-link {
+    display: block;
+    width: 100%;
+    text-align: right;
+    font-size: 0.85rem;
+    color: var(--acc-purple) !important;
+    margin-top: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* --- MEDIA QUERY (Khusus HP Baru Turun ke Bawah) --- */
+@media (max-width: 900px) {
+    .education-grid {
+        flex-direction: column; /* Ubah jadi atas-bawah cuma kalau layar kecil */
+    }
+    .education-image {
+        flex: auto;
+        width: 100%; /* Gambar jadi lebar penuh di HP */
+        margin-top: 30px;
+        order: -1; /* (Opsional) Kalau mau gambar di atas teks pas di HP */
+    }
+}
